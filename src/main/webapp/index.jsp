@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Title of a page</title>
+		<title>Reference Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!--Styles is how we can use styles consistently throughout elements on a page-->
 		
@@ -97,7 +97,7 @@
 		<div align='center'>
 			<h1>List of different elements</h1>
 			<div>
-				<a href='AcceptDelivery.jsp'>link to take you to different pages</a>
+				<a href='HomePage.jsp'>link to take you to different pages</a>
 			</div>
 			<div>
 				<button type='button' onClick=''>Button</button>
