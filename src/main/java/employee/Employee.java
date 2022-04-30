@@ -5,12 +5,12 @@ public class Employee {
 	/**
 	 *  Setting all private variables for course
 	 */
-	private String ssn;
-	private String last;
-	private String first;
-	private int hours;
-	private String empNum;
-	private String restaurantNum;
+	protected String ssn;
+	protected String last;
+	protected String first;
+	protected int hours;
+	protected String empNum;
+	protected String restaurantNum;
 
 	
 	/**

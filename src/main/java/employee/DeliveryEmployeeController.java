@@ -1,12 +1,11 @@
-package order;
+package employee;
 
 import java.sql.*;
 import oracle.jdbc.*;
-import employee.Employee;
 import order.Order;
 import java.util.Random;
 
-public class OrderController {
+public class DeliveryEmployeeController {
 	
 	public Connection openDBConnection() {
 		try {
