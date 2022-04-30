@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Menu</title>
 	<style>	
 		div {
 			margin-top: 10px;
@@ -83,14 +83,13 @@
 <body>
 	<div style='margin-top: 0px'>
 		<ul>
-			<li><a href='index.jsp'>Reference Page</a></li>
+			<li><a href='HomePage.jsp'>Home Page</a></li>
 			<li><a href='CustomerHome.jsp'>Customer Page</a></li>
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
-			<li style='float:right'><a href='AcceptDelivery.jsp'>Login</a></li>
 		</ul>
 	</div>
 	<div align='center'>
-		<h1>Title of page here</h1>
+		<h1>Menu</h1>
 	</div>
 </body>
 </html>

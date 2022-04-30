@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Customer Home Page</title>
+<title>Reviews</title>
 	<style>	
 		div {
 			margin-top: 10px;
@@ -83,20 +83,13 @@
 <body>
 	<div style='margin-top: 0px'>
 		<ul>
-			<li><a href='index.jsp'>Reference Page</a></li>
+			<li><a href='HomePage.jsp'>Home Page</a></li>
 			<li><a href='CustomerHome.jsp'>Customer Page</a></li>
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
-			<li style='float:right'><a href='AcceptDelivery.jsp'>Login</a></li>
 		</ul>
 	</div>
 	<div align='center'>
-		<h1>Customer Home Page</h1>
-	</div>
-	<div align='center'>
-		<button type='button' onclick="location.href='ViewMenu.jsp'">View Menu</button>
-		<button type='button' onclick="location.href='PlaceOrder.jsp'">Place Order</button>
-		<button type='button' onclick="location.href='AccountInfo.jsp'">View Account Info</button>
-		<button type='button' onclick="location.href='Reviews.jsp'">Reviews</button>
+		<h1>Reviews</h1>
 	</div>
 </body>
 </html>
