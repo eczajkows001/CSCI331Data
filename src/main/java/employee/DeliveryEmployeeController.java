@@ -44,7 +44,7 @@ public class DeliveryEmployeeController {
 			E.printStackTrace();
 		}
 	}
-	public void placeOrder(String customerNum, String pizzaType, String pizzaSize, String drink, String restaurantNum, String deliveryType) {
+	public void acceptDelivery() {
 		try {
 			//Variable for connection to DB
 			Connection con = openDBConnection();
@@ -104,7 +104,38 @@ public class DeliveryEmployeeController {
 		catch(SQLException E){
 			System.out.println("SQL problems:" + E);
 		}
-
+	
 	}
-
+//	public static Professor getProfessorInfo(String pid) {
+//		Professor s = new Professor();
+//		
+//		try {
+//	        //Vairable for connection to DB
+//	        Connection con = openDBConnection();
+//
+//	        String queryString = "SELECT * FROM RMP_PROFESSOR P WHERE P.PID = ?";
+//
+//	        PreparedStatement preparedStmt = con.prepareStatement(queryString);
+//	        
+//	        preparedStmt.clearParameters();
+//	        preparedStmt.setString(1, pid);
+//	        
+//	        ResultSet result = preparedStmt.executeQuery();
+//	        
+//	        result.next();
+//	        
+//	        System.out.println(result.getString(2));
+//	        s.setProfessorName(result.getString(2));
+//	        
+//	        
+//	        
+//	        return s;
+//
+//	      }
+//	      catch(SQLException E){
+//	        System.out.println("SQL problems:" + E);
+//	      }
+//		
+//		return s;
+//	}
 }
