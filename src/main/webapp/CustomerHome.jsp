@@ -96,6 +96,7 @@
 		<button type='button'>View Menu</button>
 		<button type='button'>Place Order</button>
 		<button type='button'>View Account Info</button>
+		<button type='button'>Reviews</button>
 	</div>
 </body>
 </html>

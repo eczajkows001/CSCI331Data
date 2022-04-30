@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Employee Interface</title>
+<title>Insert title here</title>
 	<style>	
 		div {
 			margin-top: 10px;
@@ -19,7 +19,7 @@
         	text-align: center;
         	font-size: 16px;
         	padding: 20px;
-        	width: 190px;
+        	width: 175px;
         	-webkit-transition: all 0.5s;
         	-moz-transition: all 0.5s;
         	-o-transition: all 0.5s;
@@ -83,47 +83,14 @@
 <body>
 	<div style='margin-top: 0px'>
 		<ul>
-			<li><a href='HomePage.jsp'>Home Page</a></li>
+			<li><a href='index.jsp'>Reference Page</a></li>
 			<li><a href='CustomerHome.jsp'>Customer Page</a></li>
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
+			<li style='float:right'><a href='AcceptDelivery.jsp'>Login</a></li>
 		</ul>
 	</div>
 	<div align='center'>
-		<h1>Employee Home Page</h1>
-	</div>
-		<br>
-	<div align='center'>
-		<h3>Employee Interface</h3>
-	</div>
-	<div align='center'>
-		<button type='button' onclick='location.href="ViewOrders.jsp"'>View Orders</button>
-	</div>
-	<br>
-	<div align='center'>
-		<h3>Manager Interface</h3>
-	</div>
-	<div align='center'>
-	
-		<button type='button' onclick="location.href='ManageEmployees.jsp';">Manage Employees</button>
-		<button type='button' onclick="location.href='ManageOrders.jsp';">Manage Orders</button>
-		<button type='button' onclick="location.href='ManageMenu.jsp';">Manage Menu</button>
-		<button type='button' onclick="location.href='ManageLocations.jsp';">Manage Locations</button>
-	</div>
-		<br>
-	<div align='center'>
-		<h3>Delivery Driver Interface</h3>
-	</div>
-	<div align='center'>
-		<button type='button' onclick='location.href="ManageDeliveries.jsp"'>Manage Deliveries</button>
+		<h1>Title of page here</h1>
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
