@@ -44,55 +44,19 @@ public class DeliveryEmployeeController {
 			E.printStackTrace();
 		}
 	}
-	public void acceptDelivery() {
+	public void acceptDelivery(String orderNum, String ssn) {
 		try {
 			//Variable for connection to DB
 			Connection con = openDBConnection();
-			Random randOrder = new Random();
-			String orderNum = String.valueOf(randOrder.nextInt(999999));
-			String status = "baking";
-			float orderTotal = 0;
 			
-			if (pizzaSize == "large"){
-				orderTotal += 16.99;
-			}
-			else if (pizzaSize == "medium"){
-				orderTotal += 14.99;
-			}
-			else if (pizzaSize == "small"){
-				orderTotal += 12.99;
-			}
-			else {
-				orderTotal += 14.99;
-				pizzaSize = "medium";
-			}
-			if (drink == "water") {
-				orderTotal += 1.99;
-			}
-			else if (drink == "pop") {
-				orderTotal += 2.49;
-			}
-			if (deliveryType == "d") {
-				orderTotal += 4.99;
-			}
-			
-			
-			
-			String queryString = "INSERT INTO ORDERS VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String queryString = "Query Here";
 			
 			PreparedStatement preparedStmt = con.prepareStatement(queryString);
 
 			preparedStmt.clearParameters();
 			
 			preparedStmt.setString(1, orderNum);
-			preparedStmt.setString(2, customerNum);
-			preparedStmt.setString(3, status);
-			preparedStmt.setString(4, pizzaType);
-			preparedStmt.setString(5, pizzaSize);
-			preparedStmt.setString(6, drink);
-			preparedStmt.setString(7, restaurantNum);
-			preparedStmt.setFloat(8, orderTotal);
-			preparedStmt.setString(9, deliveryType);
+			
 
 			//TODO figure out why this does not finish executing
 			preparedStmt.executeUpdate();
@@ -106,19 +70,71 @@ public class DeliveryEmployeeController {
 		}
 	
 	}
-//	public static Professor getProfessorInfo(String pid) {
-//		Professor s = new Professor();
+	public void CompleteDelivery(String orderNum, String ssn) {
+		try {
+			//Variable for connection to DB
+			Connection con = openDBConnection();
+			
+			String queryString = "Query Here";
+			
+			PreparedStatement preparedStmt = con.prepareStatement(queryString);
+
+			preparedStmt.clearParameters();
+			
+			preparedStmt.setString(1, orderNum);
+			
+
+			//TODO figure out why this does not finish executing
+			preparedStmt.executeUpdate();
+
+			con.close();
+			preparedStmt.close();
+
+		}
+		catch(SQLException E){
+			System.out.println("SQL problems:" + E);
+		}
+	
+	}
+	public void viewDeliveryInfo(String orderNum) {
+		try {
+			//Variable for connection to DB
+			Connection con = openDBConnection();
+			
+			String queryString = "Query Here";
+			
+			PreparedStatement preparedStmt = con.prepareStatement(queryString);
+	
+			preparedStmt.clearParameters();
+			
+			preparedStmt.setString(1, orderNum);
+			
+	
+			//TODO figure out why this does not finish executing
+			preparedStmt.executeUpdate();
+	
+			con.close();
+			preparedStmt.close();
+	
+		}
+		catch(SQLException E){
+			System.out.println("SQL problems:" + E);
+		}
+	
+	}
+//	public static DeliveryEmployee getDeliveryEmpInfo(String ssn) {
+//		DeliveryEmployee s = new DeliveryEmployee();
 //		
 //		try {
 //	        //Vairable for connection to DB
 //	        Connection con = openDBConnection();
 //
-//	        String queryString = "SELECT * FROM RMP_PROFESSOR P WHERE P.PID = ?";
+//	        String queryString = "SELECT * FROM Delivery_Employees E WHERE E.ssn = ?";
 //
 //	        PreparedStatement preparedStmt = con.prepareStatement(queryString);
 //	        
 //	        preparedStmt.clearParameters();
-//	        preparedStmt.setString(1, pid);
+//	        preparedStmt.setString(1, ssn);
 //	        
 //	        ResultSet result = preparedStmt.executeQuery();
 //	        
