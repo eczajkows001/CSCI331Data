@@ -116,6 +116,8 @@
 	  			<input class="w3-input w3-border" type="text"></p>
 	  		</div>
 		</form>
+		<br>
+		<button type='button' onclick="location.href='Reviews.jsp'">Submit</button>
 	</div>
 </body>
 </html>

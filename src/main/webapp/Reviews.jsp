@@ -92,7 +92,7 @@
 		<h1>Reviews</h1>
 	</div>
 	<div align='center'>
-		<button type='button' onClick="location.href=AddReview.jsp'">Add Review</button>
+		<button type='button' onclick="location.href='AddReview.jsp'">Add Review</button>
 	</div>
 </body>
 </html>

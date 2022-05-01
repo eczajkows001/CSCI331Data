@@ -83,7 +83,7 @@
 <body>
 	<div style='margin-top: 0px'>
 		<ul>
-			<li><a href='index.jsp'>Reference Page</a></li>
+			<li><a href='HomePage.jsp'>Home Page</a></li>
 			<li><a href='CustomerHome.jsp'>Customer Page</a></li>
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
 			<li style='float:right'><a href='AcceptDelivery.jsp'>Login</a></li>
