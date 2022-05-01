@@ -3,11 +3,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Reviews</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title>Add Review</title>
 	<style>	
-		div {
-			margin-top: 10px;
-		}
 		<!---->
 		
       	button {
@@ -30,30 +28,29 @@
       	button:hover {
   			background-color: #f5f5f5;
 		}
-		table{
-			border-collapse: collapse;
-			width: 100%;
-		}
-		th, td {
-			text-align: left;
-			padding: 8px;
-			border: 1px solid black;
-		}
-		tr:nth-child(even){
-			background-color: #d3d3d3
-		}
-		th {
-			background-color: darkGrey;
-  			color: white;
-		}
-		ul {
+		 select {
+        width: 140px;
+        height: 35px;
+        padding: 4px;
+        border-radius: 4px;
+        box-shadow: 2px 2px 8px #999;
+        background: #eee;
+        border: none;
+        outline: none;
+        display: inline-block;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+      }
+      	ul {
 			list-style-type: none;
   			margin: 0;
   			padding: 0;
   			overflow: hidden;
   			background-color: #333;
 		}
-				
+      				
 		li {
 		  float: left;
 		  border-right:1px solid #bbb;
@@ -78,6 +75,7 @@
 		.active {
 		  background-color: #04AA6D;
 		}
+
     </style>
 </head>
 <body>
@@ -88,20 +86,36 @@
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
 		</ul>
 	</div>
-	<div align='center'>
-		<h1>Reviews</h1>
-	</div>
-	<div align='center'>
-		<button type='button' onClick="location.href=AddReview.jsp'">Add Review</button>
+	<div class="w3-container">
+		<form class="w3-container w3-card-4 w3-light-grey">
+  			<h2>Add Review</h2>
+  			<div>
+  				<label>Restaurant: 
+	  				<select>
+	  					<option>Location 001</option>
+	  					<option>Location 100</option>
+	  					<option>Location 200</option>
+	  				</select>
+	  			</label>
+  			</div>
+  			<br>
+  			<div>
+		  		<label>Rating: 
+		  			<select>
+		  				<option>1</option>
+		  				<option>2</option>
+		  				<option>3</option>
+		  				<option>4</option>
+		  				<option>5</option>
+		  			</select>
+		  		</label>
+  			</div>
+  			<br>
+	  		<div style="margin-top:10px">
+	  			<p><label>Review</label>
+	  			<input class="w3-input w3-border" type="text"></p>
+	  		</div>
+		</form>
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
