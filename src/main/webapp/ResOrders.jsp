@@ -1,9 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="order.*" import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Employee Interface</title>
+<title>Orders</title>
 	<style>	
 		div {
 			margin-top: 10px;
@@ -19,7 +19,7 @@
         	text-align: center;
         	font-size: 16px;
         	padding: 20px;
-        	width: 190px;
+        	width: 175px;
         	-webkit-transition: all 0.5s;
         	-moz-transition: all 0.5s;
         	-o-transition: all 0.5s;
@@ -88,43 +88,48 @@
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
 		</ul>
 	</div>
+	<% OrderController oc = new OrderController();
+	String res = request.getParameter("restaurant");
+	if(request.getParameter("restaurant") != "" && request.getParameter("restaurant") != null ){ %>
 	<div align='center'>
-		<h1>Employee Home Page</h1>
+		<h1>Orders in Progress</h1>
+		<hr>
+		Orders for Restaurant: <%out.println(res);%>
+		<table style="text-align: left; width: 55%;" border="1" cellpadding="2" cellspacing="2">
+		<tr>
+			<th> Order Number </th>
+			<th> Customer Number </th>
+			<th> Status </th>
+			<th> Drink </th>
+			<th> Order Total </th>
+			<th> Pizza Type </th>
+			<th> Pizza Size </th>
+		</tr>
+		<%List<Order> list = oc.ViewResOrders(request.getParameter("restaurant")); 
+		for(Order o: list){%>
+		<tr>
+			<td><%out.println(o.getOrderNum()); %> </td>
+			<td><%out.println(o.getCustomerNum()); %> </td>
+			<td><%out.println(o.getStatus()); %> </td>
+			<td><%out.println(o.getDrink()); %> </td>
+			<td><%out.println(o.getOrderTotal()); %> </td>
+			<td><%out.println(o.getPizzaType()); %> </td>
+			<td><%out.println(o.getPizzaSize()); %> </td>
+		</tr>
+		<%}%>
+		
 	</div>
-		<br>
+	<%} 
+	else{%>
+	<form method="post" action="ResOrders.jsp"><br>
 	<div align='center'>
-		<h3>Employee Interface</h3>
+		<h1>Restaurant Information</h1>
+		<hr>
+		Please enter the restaurant you want to view the orders of:
+		<p>Restaurant Number: <input type="text" name="restaurant" class="form-control" > </p>
+		
 	</div>
-	<div align='center'>
-		<button type='button' onclick='location.href="ViewOrders.jsp"'>View All Orders</button>
-		<button type='button' onclick='location.href="ResOrders.jsp"'>View Orders in Progress</button>
-	</div>
-	<br>
-	<div align='center'>
-		<h3>Manager Interface</h3>
-	</div>
-	<div align='center'>
-	
-		<button type='button' onclick="location.href='ManageEmployees.jsp';">Manage Employees</button>
-		<button type='button' onclick="location.href='ManageOrders.jsp';">Manage Orders</button>
-		<button type='button' onclick="location.href='ManageMenu.jsp';">Manage Menu</button>
-		<button type='button' onclick="location.href='ManageLocations.jsp';">Manage Locations</button>
-	</div>
-		<br>
-	<div align='center'>
-		<h3>Delivery Driver Interface</h3>
-	</div>
-	<div align='center'>
-		<button type='button' onclick='location.href="ManageDeliveries.jsp"'>Manage Deliveries</button>
-	</div>
+	</form>
+	<%} %>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
