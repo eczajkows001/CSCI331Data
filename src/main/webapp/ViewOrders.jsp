@@ -95,7 +95,6 @@
 	<div align='center'>
 		<h1>Orders in Progress</h1>
 		<hr>
-		Order Number: <%out.println(res);%>
 		<br>
 		<table style="text-align: left; width: 55%;" border="1" cellpadding="2" cellspacing="2">
 		<tr>
@@ -120,15 +119,14 @@
 		</tr>
 		<%}%>
 		
-	</div>
 	<%} 
 	else{%>
 	<form method="post" action="ViewOrders.jsp"><br>
 	<div align='center'>
 		<h1>View Order Information</h1>
 		<hr>
-		Please enter your order number:
-		<p>Order Number: <input type="text" name="orderNum" class="form-control" > </p>
+		Please enter your customer number:
+		<p>Customer Number: <input type="text" name="orderNum" class="form-control" > </p>
 		
 	</div>
 	</form>

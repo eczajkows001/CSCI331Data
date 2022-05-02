@@ -150,17 +150,17 @@ public class OrderController {
 
 	}
 	
-	public List<Order> getOrders(String orderNum) {
+	public List<Order> getOrders(String cusNum) {
 		List<Order> list = new ArrayList<Order>();
 		try {
 			Connection con = openDBConnection();
-			
+			//String queryString = "EXEC ViewOrderInfo ?";
 			String queryString = "Select o.customer_number, o.deliverytype, o.drink, o.order_number, o.ordertotal, o.pizzasize, o.pizzatype, o.rest_num, o.status";
 			queryString+= " from orders o";
-			queryString+= " Where o.order_number = ?";
+			queryString+= " Where o.customer_number = ?";
 			PreparedStatement preparedStmt = con.prepareStatement(queryString);
 			preparedStmt.clearParameters();
-			preparedStmt.setString(1, orderNum);
+			preparedStmt.setString(1, cusNum);
 			ResultSet result = preparedStmt.executeQuery();
 			while (result.next()){
 				Order o = new Order();

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="Review.ReviewController" import="order.*" import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,33 +91,50 @@
   			<h2>Add Review</h2>
   			<div>
   				<label>Restaurant: 
-	  				<select>
-	  					<option>Location 001</option>
-	  					<option>Location 100</option>
-	  					<option>Location 200</option>
+	  				<select id='resNum'>
+	  					<option value='001'>Location 001</option>
+	  					<option value='100'>Location 100</option>
+	  					<option value='200'>Location 200</option>
 	  				</select>
 	  			</label>
   			</div>
   			<br>
   			<div>
 		  		<label>Rating: 
-		  			<select>
-		  				<option>1</option>
-		  				<option>2</option>
-		  				<option>3</option>
-		  				<option>4</option>
-		  				<option>5</option>
+		  			<select id='rating'>
+		  				<option value='1'>1</option>
+		  				<option value='2'>2</option>
+		  				<option value='3'>3</option>
+		  				<option value='4'>4</option>
+		  				<option value='5'>5</option>
 		  			</select>
 		  		</label>
   			</div>
   			<br>
 	  		<div style="margin-top:10px">
 	  			<p><label>Review</label>
-	  			<input class="w3-input w3-border" type="text"></p>
+	  			<input class="w3-input w3-border" type="text" name='review' id='review'></p>
 	  		</div>
 		</form>
 		<br>
-		<button type='button' onclick="location.href='Reviews.jsp'">Submit</button>
+		<script>
+			function submitReview(){
+				ReviewController rc = new ReviewController();
+				var resNum = document.getElementById('resNum').value;
+				var cusNum = '124654';
+				var rating = document.getElementById('rating').value;
+				var review = document.getElementById('review').value;
+				console.log(resNum);
+				console.log(cusNum);
+				console.log(rating);
+				console.log(review);
+				if (!resNum == '' && !cusNum == '' && !rating == '' && !review == ''){
+					rc.addReview(resNum, custNum, rating, review)
+					alert("Review submitted");
+				}
+			}
+		</script>
+		<button type='button' id='submitButton' onclick="submitReview()">Submit</button>
 	</div>
 </body>
 </html>
