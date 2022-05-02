@@ -97,6 +97,7 @@
 		<button type='button' onclick="location.href='PlaceOrder.jsp'">Place Order</button>
 		<button type='button' onclick="location.href='AccountInfo.jsp'">View Account Info</button>
 		<button type='button' onclick="location.href='Reviews.jsp'">Reviews</button>
+		<button type='button' onclick="location.href='ViewOrders.jsp'">View Order</button>
 	</div>
 </body>
 </html>

@@ -149,5 +149,40 @@ public class OrderController {
 		}
 
 	}
+	
+	public List<Order> getOrders(String orderNum) {
+		List<Order> list = new ArrayList<Order>();
+		try {
+			Connection con = openDBConnection();
+			
+			String queryString = "Select o.customer_number, o.deliverytype, o.drink, o.order_number, o.ordertotal, o.pizzasize, o.pizzatype, o.rest_num, o.status";
+			queryString+= " from orders o";
+			queryString+= " Where o.order_number = ?";
+			PreparedStatement preparedStmt = con.prepareStatement(queryString);
+			preparedStmt.clearParameters();
+			preparedStmt.setString(1, orderNum);
+			ResultSet result = preparedStmt.executeQuery();
+			while (result.next()){
+				Order o = new Order();
+				o.setOrderNum(result.getString(4));
+				o.setCustomerNum(result.getString(1));
+				o.setStatus(result.getString(9));
+				o.setDrink(result.getString(3));
+				o.setOrderTotal(result.getInt(5));
+				o.setPizzaSize(result.getString(6));
+				o.setPizzaType(result.getString(7));
+				list.add(o);
+			}
+		}
+		catch(SQLException E){
+			System.out.println("SQL problems:" + E);
+			return list;
+		}
+		return list;
+	}
 
 }
+
+
+
+
