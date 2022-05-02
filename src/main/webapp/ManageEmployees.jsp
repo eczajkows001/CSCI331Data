@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import = "employee.*" import = "java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +31,7 @@
   			background-color: #f5f5f5;
 		}
 		table{
+			font-family: arial, sans-serif;
 			border-collapse: collapse;
 			width: 100%;
 		}
@@ -91,5 +92,25 @@
 	<div align='center'>
 		<h1>Manage Employees</h1>
 	</div>
+	
+	
+	<table>
+	<tr>
+	<th>Last Name</th>
+	<th>First Name </th>
+	<th>Social Security Number </th>
+	<th>Hours </th>
+	<th>Employee Number </th>
+	<th>Restaurant Number </th>
+	</tr>
+	<tr>
+	<td>dummy data</td>
+	<td>dummy data</td>
+	<td>dummy data</td>
+	<td>dummy data</td>
+	<td>dummy data</td>
+	<td>dummy data</td>
+	</tr>
+	</table>
 </body>
 </html>
