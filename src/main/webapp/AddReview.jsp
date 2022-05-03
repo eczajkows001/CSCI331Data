@@ -89,6 +89,10 @@
 	<div class="w3-container">
 		<form class="w3-container w3-card-4 w3-light-grey">
   			<h2>Add Review</h2>
+  			<div style="margin-top:10px">
+	  			<p><label>Customer Number:</label>
+	  			<input class="w3-input w3-border" type="text" name='cusNum' id='cusNum'></p>
+	  		</div>
   			<div>
   				<label>Restaurant: 
 	  				<select id='resNum'>
@@ -118,16 +122,12 @@
 		</form>
 		<br>
 		<script>
-			function submitReview(){
+			function submitReview(ReviewController rc){
 				ReviewController rc = new ReviewController();
 				var resNum = document.getElementById('resNum').value;
-				var cusNum = '124654';
+				var cusNum = document.getElementById('cusNum').value;
 				var rating = document.getElementById('rating').value;
 				var review = document.getElementById('review').value;
-				console.log(resNum);
-				console.log(cusNum);
-				console.log(rating);
-				console.log(review);
 				if (!resNum == '' && !cusNum == '' && !rating == '' && !review == ''){
 					rc.addReview(resNum, custNum, rating, review)
 					alert("Review submitted");

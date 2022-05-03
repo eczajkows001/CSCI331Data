@@ -1,9 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" import = "employee.*" import = "java.util.*"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="order.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Manage Employees</title>
+<title>Insert title here</title>
 	<style>	
 		div {
 			margin-top: 10px;
@@ -31,7 +31,6 @@
   			background-color: #f5f5f5;
 		}
 		table{
-			font-family: arial, sans-serif;
 			border-collapse: collapse;
 			width: 100%;
 		}
@@ -90,69 +89,7 @@
 		</ul>
 	</div>
 	<div align='center'>
-		<h1>Manage Employees</h1>
-		<h2>Search Employees</h2>
+		<h1>Title of page here</h1>
 	</div>
-	
-	<form>
-	<table>
-	<tr>
-	<td>
-	<label for = "firstName:"> First Name:</label>
-	<input type = "text" id = "fname" name = "fname">
-	</td>
-	<td>
-	<label for = "Last Name"> Last Name:</label>
-	<input type = "text" id = "lname" name = "lname">
-	</td>
-	</tr>
-	
-	<tr>
-	<td>
-	<label for = "SSN"> Social Security Number:</label>
-	<input type = "text" id = "SSN" name = "SSN">
-	</td>
-	<td>
-	<label for = "Employee Number"> Employee Number:</label>
-	<input type = "text" id = "employeeNumber" name = "employeeNumber">
-	</td>
-	</tr>
-	<tr>
-	</tr>
-	</table>
-	<input type = "submit" value = "Submit">
-	</form>
-
-<% EmployeeController ec = new EmployeeController();%>
-<% List<Employee> employeeList =  ec.viewEmployees();
-employeeList = ec.viewEmployees();%>
-
-	
-	<div align='center'>
-	<h2>Results</h2>
-	</div>
-	
-	<table>
-	<tr>
-	<th>Last Name</th>
-	<th>First Name </th>
-	<th>Social Security Number </th>
-	<th>Hours </th>
-	<th>Employee Number </th>
-	<th>Restaurant Number </th>
-	</tr>
-	
-   <%for(Employee e: employeeList){ %>
-	<tr>
-	<td><%out.println(e.getLast()); %></td>
-	<td><%out.println(e.getFirst()); %></td>
-	<td><%out.println(e.getSsn()); %></td>
-	<td><%out.println(e.getHours()); %></td>
-	<td><%out.println(e.getEmpNum());%></td>
-	<td><%out.println(e.getRestaurantNum());%></td>
-	</tr>
-	<%} %>
-
-	</table>
 </body>
 </html>
