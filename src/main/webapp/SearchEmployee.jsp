@@ -142,15 +142,6 @@ li a:hover:not(.active) {
 			</td>
 		</tr>
 		<%} %>
-
-		<tr>
-			<td>dummy data</td>
-			<td>dummy data</td>
-			<td>dummy data</td>
-			<td>dummy data</td>
-			<td>dummy data</td>
-			<td>dummy data</td>
-		</tr>
 	</table>
 	<% }
 	else{%>

@@ -56,11 +56,16 @@ public class EmployeeController {
 		List<Employee> employeeList = new ArrayList<>();
 		try {
 		Connection con = openDBConnection();
-		String queryString = "Select ssn, last, first, hours, employee_num, rest_num from EMPLOYEES Where employee_num =?";
+		String queryString = "Select ssn, last, first, hours, employee_num, rest_num from EMPLOYEES Where employee_num = ?";
 		
 		PreparedStatement prepStmt = con.prepareStatement(queryString);
+		
 		prepStmt.clearParameters();
-		ResultSet result = prepStmt.executeQuery(queryString);
+
+		prepStmt.setString(1, employeeNum);
+		
+		ResultSet result = prepStmt.executeQuery();
+		
 		while (result.next()) {
 			Employee e = new Employee();
 			e.setSsn(result.getString(1));
@@ -84,9 +89,9 @@ public class EmployeeController {
 	public void addNewEmployee(String firstName, String lastName, String SSN, String EmployeeNumber, String hours, String resNumber) {
 		try{
 			Connection con = openDBConnection();
-			String queryString  = "INSERT INTO EMPLOYEES VALUES (?, ?, ?, ?, ?, ?)";
+			String queryString  = "INSERT INTO EMPLOYEES VALUES ('?', '?', '?', '?', '?', '?')";
 			PreparedStatement preparedStmt = con.prepareStatement(queryString);
-
+			preparedStmt.clearParameters();
 			preparedStmt.setString(1, SSN);
 			preparedStmt.setString(2, lastName);
 			preparedStmt.setString(3, firstName);
@@ -104,13 +109,13 @@ public class EmployeeController {
 		}
 	}
 
-	public void removeNewEmployee(String employeeNum) {
+	public void removeEmployee(String employeeNum) {
 		try{
 			Connection con = openDBConnection();
-			String queryString  = "DELETE FROM EMPLOYEES e WHERE ? ";
-			queryString += "= e.EMPLOYEE_NUM";
+			String queryString  = "DELETE FROM EMPLOYEES WHERE EMPLOYEE_NUM=?";
 			PreparedStatement preparedStmt = con.prepareStatement(queryString);
-
+			
+			preparedStmt.clearParameters();
 			preparedStmt.setString(1, employeeNum);
 
 			preparedStmt.executeUpdate();

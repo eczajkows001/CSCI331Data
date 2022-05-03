@@ -103,9 +103,8 @@ li a:hover:not(.active) {
 
 				var employeeNumToRemove = document.getElementById('EmployeeNumber3').value;
 				console.log(employeeNumToRemove);
-				if (!employeeNumToRemove = ''){
-					ec1.removeEmployee();
-					alert("Alert submitted");
+				if (!request.getParameter("employeeNumber3") = ""){
+				ec1.removeEmployee(request.getParameter("employeeNumber3"));
 				}
 			}
 		</script>
@@ -115,10 +114,10 @@ li a:hover:not(.active) {
 	</div>
 
 	<label for="Employee Number:"> Employee Number:</label>
-	<input type="text" id="employeeNumber3" name="employeeNumber3">
+	<input type="text" name="employeeNumber3">
 	<br>
 	<button type='button' id='submitRemoveEmployeeButton'
-		onclick="submitNewEmployee()">Remove Employee</button>
+		onclick="submitRemoveEmployee()">Remove Employee</button>
 
 	<div align='center'>
 		<h1>Add Employee</h1>

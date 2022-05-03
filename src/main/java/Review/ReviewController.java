@@ -72,6 +72,7 @@ public class ReviewController {
 //			
 //			preparedStmt.executeUpdate();
 //			preparedStmt.close();
+
 			con.close();
 		}
 		catch(SQLException E){
