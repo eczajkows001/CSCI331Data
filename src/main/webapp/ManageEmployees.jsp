@@ -91,8 +91,46 @@
 	</div>
 	<div align='center'>
 		<h1>Manage Employees</h1>
+		<h2>Search Employees</h2>
 	</div>
 	
+	<form>
+	<table>
+	<tr>
+	<td>
+	<label for = "firstName:"> First Name:</label>
+	<input type = "text" id = "fname" name = "fname">
+	</td>
+	<td>
+	<label for = "Last Name"> Last Name:</label>
+	<input type = "text" id = "lname" name = "lname">
+	</td>
+	</tr>
+	
+	<tr>
+	<td>
+	<label for = "SSN"> Social Security Number:</label>
+	<input type = "text" id = "SSN" name = "SSN">
+	</td>
+	<td>
+	<label for = "Employee Number"> Employee Number:</label>
+	<input type = "text" id = "employeeNumber" name = "employeeNumber">
+	</td>
+	</tr>
+	<tr>
+	</tr>
+	</table>
+	<input type = "submit" value = "Submit">
+	</form>
+
+<% EmployeeController ec = new EmployeeController();%>
+<% List<Employee> employeeList =  ec.viewEmployees();;
+employeeList = ec.viewEmployees();%>
+
+	
+	<div align='center'>
+	<h2>Results</h2>
+	</div>
 	
 	<table>
 	<tr>
@@ -103,14 +141,18 @@
 	<th>Employee Number </th>
 	<th>Restaurant Number </th>
 	</tr>
+	
+   <%for(Employee e: employeeList){ %>
 	<tr>
-	<td>dummy data</td>
-	<td>dummy data</td>
-	<td>dummy data</td>
-	<td>dummy data</td>
-	<td>dummy data</td>
-	<td>dummy data</td>
+	<td><%out.println(e.getLast()); %></td>
+	<td><%out.println(e.getFirst()); %></td>
+	<td><%out.println(e.getSsn()); %></td>
+	<td><%out.println(e.getHours()); %></td>
+	<td><%out.println(e.getEmpNum());%></td>
+	<td><%out.println(e.getRestaurantNum());%></td>
 	</tr>
+	<%} %>
+
 	</table>
 </body>
 </html>

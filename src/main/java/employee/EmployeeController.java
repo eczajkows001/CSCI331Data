@@ -24,28 +24,32 @@ public class EmployeeController {
 		return null;
 	}
 	
-	public void viewEmployees() {
+	public List<Employee> viewEmployees() {
 	List<Employee> employeeList = new ArrayList<Employee>();
 	try {
 	Connection con = openDBConnection();
-	
-	
-	String queryString = "Select e.SSN, e.last, elfirst, e.Hours, e.Employee_Num, e.Rest_Num"
-			+ "from EMPLOYEES e, RESTAURANT r"
-			+ "where e.rest_num = r.rest_num";
+	String queryString = "Select e.SSN, e.last, elfirst, e.Hours, e.Employee_Num, e.Rest_Num";
+	 queryString += "from EMPLOYEES e, RESTAURANT r";
+     queryString += "where e.rest_num = r.rest_num";
 	PreparedStatement preparedStmt = con.prepareStatement(queryString);
+	preparedStmt.clearParameters();
 	ResultSet result = preparedStmt.executeQuery();
 	while (result.next()) {
 		Employee e = new Employee();
 		e.setLast(result.getString(1));
-		e.setFirst(result.getString(1));
-		e.setHours(Integer.parseInt(result.getString(1)));
-		e.setEmpNum("12341324");
-		e.setRestaurantNum("3");
+		e.setFirst(result.getString(2));
+		e.setHours(Integer.parseInt(result.getString(3)));
+		e.setEmpNum(result.getString(4));
+		e.setRestaurantNum(result.getString(5));
+		employeeList.add(e);
 	}
+	result.close();
+	preparedStmt.close();
+	return employeeList;
 	}
 		catch(SQLException E) {
 			System.out.println("SQL problems:" + E);
+			return employeeList;
 		}
 	}
 
