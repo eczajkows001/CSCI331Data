@@ -1,5 +1,6 @@
 package Review;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -49,17 +50,29 @@ public class ReviewController {
 	public void addReview(String restNum, String customerNum, String rating, String review) {
 		try {
 			Connection con = openDBConnection();
-			String queryString = "EXEC reviews_addreview('?','?','?','?')";
-			PreparedStatement preparedStmt = con.prepareStatement(queryString);
-			preparedStmt.setString(1,  restNum);
-			preparedStmt.setString(2,  customerNum);
-			preparedStmt.setString(3, rating);
-			preparedStmt.setString(4, review);
-			preparedStmt.clearParameters();
 
-			preparedStmt.executeUpdate();
+			CallableStatement c = con.prepareCall("begin REVIEWS_ADDREVIEW (?, ?, ?, ?); end;");
+			c.clearParameters();
+			c.setString(1,  restNum);
+			c.setString(2,  customerNum);
+			c.setString(3, rating);
+			c.setString(4, review);
+	        c.execute();  
+	        c.close();
+	        con.close();
+			//String queryString = "EXEC REVIEWS_AddReviews(?, ?, ?, ?)";
+			//String queryString = "INSERT INTO REVIEWS VALUES(rest_num, customer_number, rating, review) VALUES (?, ?, ?, ?)";
+					
+			//PreparedStatement preparedStmt = con.prepareStatement(queryString);
+//			preparedStmt.setString(1,  restNum);
+//			preparedStmt.setString(2,  customerNum);
+//			preparedStmt.setString(3, rating);
+//			preparedStmt.setString(4, review);
+//			preparedStmt.clearParameters();
+//			
+//			preparedStmt.executeUpdate();
+//			preparedStmt.close();
 			con.close();
-			preparedStmt.close();
 		}
 		catch(SQLException E){
 			System.out.println("SQL problems:" + E);

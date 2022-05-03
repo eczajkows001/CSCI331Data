@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"
-	import="Review.ReviewController" import="order.*" import="java.util.*"%>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="Review.*" import="order.*" import="java.util.*" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,56 +91,42 @@ li a:hover:not(.active) {
 		</ul>
 	</div>
 	<div class="w3-container">
-		<form class="w3-container w3-card-4 w3-light-grey">
-			<h2>Add Review</h2>
-			<div style="margin-top: 10px">
-				<p>
-					<label>Customer Number:</label> <input class="w3-input w3-border"
-						type="text" name='cusNum' id='cusNum'>
-				</p>
-			</div>
-			<div>
-				<label>Restaurant: <select id='resNum'>
-						<option value='001'>Location 001</option>
-						<option value='100'>Location 100</option>
-						<option value='200'>Location 200</option>
-				</select>
-				</label>
-			</div>
-			<br>
-			<div>
-				<label>Rating: <select id='rating'>
-						<option value='1'>1</option>
-						<option value='2'>2</option>
-						<option value='3'>3</option>
-						<option value='4'>4</option>
-						<option value='5'>5</option>
-				</select>
-				</label>
-			</div>
-			<br>
-			<div style="margin-top: 10px">
-				<p>
-					<label>Review</label> <input class="w3-input w3-border" type="text"
-						name='review' id='review'>
-				</p>
-			</div>
+
+		<form class="w3-container w3-card-4 w3-light-grey" method="post" action="AddReviewAction.jsp">
+  			<h2>Add Review</h2>
+  			<div style="margin-top:10px">
+	  			<p><label>Customer Number:</label>
+	  			<input class="w3-input w3-border" type="text" name='cusNum' id='cusNum'></p>
+	  		</div>
+  			<div>
+  				<label>Restaurant: 
+	  				<select id='resNum' name='resNum'>
+	  					<option value='001'>Location 001</option>
+	  					<option value='100'>Location 100</option>
+	  					<option value='200'>Location 200</option>
+	  				</select>
+	  			</label>
+  			</div>
+  			<br>
+  			<div>
+		  		<label>Rating: 
+		  			<select id='rating' name='rating'>
+		  				<option value="1">1</option>
+		  				<option value="2">2</option>
+		  				<option value="3">3</option>
+		  				<option value="4">4</option>
+		  				<option value="5">5</option>
+		  			</select>
+		  		</label>
+  			</div>
+  			<br>
+	  		<div style="margin-top:10px">
+	  			<p><label>Review</label>
+	  			<input class="form-control" type="text" name='review' id='review'></p>
+	  		</div>
+	  		<input name="submit" value="submit" type="submit">
 		</form>
 		<br>
-		<script>
-			function submitReview(ReviewController rc){
-				ReviewController rc = new ReviewController();
-				var resNum = document.getElementById('resNum').value;
-				var cusNum = document.getElementById('cusNum').value;
-				var rating = document.getElementById('rating').value;
-				var review = document.getElementById('review').value;
-				if (!resNum == '' && !cusNum == '' && !rating == '' && !review == ''){
-					rc.addReview(resNum, custNum, rating, review)
-					alert("Review submitted");
-				}
-			}
-		</script>
-		<button type='button' id='submitButton' onclick="submitReview()">Submit</button>
 	</div>
 </body>
 </html>
