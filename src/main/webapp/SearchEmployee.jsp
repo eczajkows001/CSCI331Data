@@ -97,24 +97,75 @@ li a:hover:not(.active) {
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
 		</ul>
 	</div>
-	<div align='center'>
-		<h1>Manage Employees</h1>
-		<button type='button' onclick="location.href='AddEmployee.jsp'">Add/Remove
-			Employee</button>
+
+	<%if(request.getParameter("employeeNumber") != "" && request.getParameter("employeeNumber") != null){ %>
+	<div allign='center'>
+		<h1>Employee(s) Found:</h1>
 	</div>
+	<% EmployeeController ec = new EmployeeController(); %>
+	<%List<Employee> employeeList = new ArrayList<Employee>();
+    employeeList = ec.searchEmployees();%>
 
 	<div align='center'>
-		<h1>Search Employees</h1>
-		<button type='button' onclick="location.href='SearchEmployee.jsp'">Search
-			Employee</button>
+		<h2>Results</h2>
 	</div>
 
-	<div align='center'>
-		<h1>View All Employees</h1>
-		<button type='button' onclick="location.href='viewAllEmployees.jsp'">View
-			All Employees</button>
-	</div>
+	<table>
+		<tr>
+			<th>Last Name</th>
+			<th>First Name</th>
+			<th>Social Security Number</th>
+			<th>Hours</th>
+			<th>Employee Number</th>
+			<th>Restaurant Number</th>
+		</tr>
 
+		<%for(Employee e: employeeList){ %>
+		<tr>
+			<td>
+				<%out.println(e.getLast()); %>
+			</td>
+			<td>
+				<%out.println(e.getFirst()); %>
+			</td>
+			<td>
+				<%out.println(e.getSsn()); %>
+			</td>
+			<td>
+				<%out.println(e.getHours()); %>
+			</td>
+			<td>
+				<%out.println(e.getEmpNum());%>
+			</td>
+			<td>
+				<%out.println(e.getRestaurantNum());%>
+			</td>
+		</tr>
+		<%} %>
+
+		<tr>
+			<td>dummy data</td>
+			<td>dummy data</td>
+			<td>dummy data</td>
+			<td>dummy data</td>
+			<td>dummy data</td>
+			<td>dummy data</td>
+		</tr>
+	</table>
+	<% }
+	else{%>
+	<form method="post" action="SearchEmployee.jsp">
+		<br>
+		<div align='center'>
+			<h1>Search Employees</h1>
+		</div>
+		<div>
+			<label for="Employee Number"> Please Enter The Employee
+				Number:</label><br> <input type="text" name="employeeNumber"
+				class="form-control">
+		</div>
+	</form>
+	<%} %>
 
 </body>
 </html>

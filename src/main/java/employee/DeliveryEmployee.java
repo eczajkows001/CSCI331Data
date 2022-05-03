@@ -1,7 +1,7 @@
 package employee;
 
 public class DeliveryEmployee extends Employee {
-	
+
 	/**
 	 *  Setting all private variables for course
 	 */
@@ -9,7 +9,7 @@ public class DeliveryEmployee extends Employee {
 	private String range;
 	private String currentOrder;
 
-	
+
 	/**
 	 *  Constructors
 	 */
@@ -20,12 +20,12 @@ public class DeliveryEmployee extends Employee {
 		this.setCurrentOrder(currentOrder);
 
 	}
-	
+
 	public DeliveryEmployee() {
-		
+
 	}
 
-	
+
 	public String getPlate() {
 		return plate;
 	}
@@ -51,7 +51,7 @@ public class DeliveryEmployee extends Employee {
 	}
 
 
-	
-	
-	
+
+
+
 }

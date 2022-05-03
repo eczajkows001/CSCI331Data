@@ -1,9 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+	import="employee.*" import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Reviews</title>
+<title>Manage Employees</title>
 <style>
 div {
 	margin-top: 10px;
@@ -34,6 +35,7 @@ button:hover {
 }
 
 table {
+	font-family: arial, sans-serif;
 	border-collapse: collapse;
 	width: 100%;
 }
@@ -95,21 +97,37 @@ li a:hover:not(.active) {
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
 		</ul>
 	</div>
+
+
 	<div align='center'>
-		<h1>Reviews</h1>
+		<h1>All Employees</h1>
 	</div>
-	<div align='center'>
-		<button type='button' onclick="location.href='AddReview.jsp'">Add
-			Review</button>
-	</div>
+	<% EmployeeController ec = new EmployeeController(); %>
+	<%List<Employee> employeeList = new ArrayList<Employee>();
+    employeeList = ec.viewEmployees();%>
+	<table>
+		<tr>
+			<th>Last Name</th>
+			<th>First Name</th>
+			<th>Social Security Number</th>
+			<th>Hours</th>
+			<th>Employee Number</th>
+			<th>Restaurant Number</th>
+		</tr>
+<%for(Employee e: employeeList){ %>
+	<tr>
+	<td><%out.println(e.getLast()); %></td>
+	<td><%out.println(e.getFirst()); %></td>
+	<td><%out.println(e.getSsn()); %></td>
+	<td><%out.println(e.getHours()); %></td>
+	<td><%out.println(e.getEmpNum());%></td>
+	<td><%out.println(e.getRestaurantNum());%></td>
+	</tr>
+	<%} %>
+	</table>
+
+
+
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-

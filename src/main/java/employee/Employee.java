@@ -1,7 +1,7 @@
 package employee;
 
 public class Employee {
-	
+
 	/**
 	 *  Setting all private variables for course
 	 */
@@ -12,7 +12,7 @@ public class Employee {
 	protected String empNum;
 	protected String restaurantNum;
 
-	
+
 	/**
 	 *  Constructors
 	 */
@@ -25,9 +25,9 @@ public class Employee {
 		this.empNum = empNum;
 		this.restaurantNum = restaurantNum;
 	}
-	
+
 	public Employee() {
-		
+
 	}
 
 	public String getSsn() {
@@ -79,7 +79,7 @@ public class Employee {
 	}
 
 
-	
-	
-	
+
+
+
 }

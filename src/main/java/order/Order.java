@@ -1,7 +1,7 @@
 package order;
 
 public class Order {
-	
+
 	/**
 	 *  Setting all private variables for course
 	 */
@@ -14,7 +14,7 @@ public class Order {
 	private String restaurantNum;
 	private float orderTotal;
 	private char deliveryType;
-	
+
 	/**
 	 *  Constructors
 	 */
@@ -30,11 +30,11 @@ public class Order {
 		this.orderTotal = orderTotal;
 		this.deliveryType = deliveryType;
 	}
-	
+
 	public Order() {
-		
+
 	}
-	
+
 	/**
 	 *  Getters and setters for all variables
 	 */
@@ -94,6 +94,6 @@ public class Order {
 	public void setPizzaSize(String pizzaSize) {
 		this.pizzaSize = pizzaSize;
 	}
-	
-	
+
+
 }

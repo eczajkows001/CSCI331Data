@@ -8,8 +8,8 @@ public class Customer {
 	private String city;
 	private String state;
 	private int zipcode;
-	
-	public Customer(int customerNum, String fname, String lname, String street, 
+
+	public Customer(int customerNum, String fname, String lname, String street,
 			String city, String state, int zipcode ) {
 		this.customerNum = customerNum;
 		this.fname = fname;
@@ -19,7 +19,7 @@ public class Customer {
 		this.state = state;
 		this.zipcode = zipcode;
 	}
-	
+
 	/**
 	 *  Getters and setters for all variables
 	 */
@@ -65,5 +65,5 @@ public class Customer {
 	public void setOrderTotal(int zipcode) {
 		this.zipcode = zipcode;
 	}
-	
+
 }

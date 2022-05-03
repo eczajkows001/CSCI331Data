@@ -1,16 +1,17 @@
 package order;
 
-import java.sql.*;
-import oracle.jdbc.*;
-import employee.Employee;
-import order.Order;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class OrderController {
-	
+
 	public Connection openDBConnection() {
 		try {
 			// Load driver and link to driver manager
@@ -56,7 +57,7 @@ public class OrderController {
 			String orderNum = String.valueOf(randOrder.nextInt(999999));
 			String status = "baking";
 			float orderTotal = 0;
-			
+
 			if (pizzaSize == "large"){
 				orderTotal += 16.99;
 			}
@@ -79,15 +80,15 @@ public class OrderController {
 			if (deliveryType == "d") {
 				orderTotal += 4.99;
 			}
-			
-			
-			
+
+
+
 			String queryString = "INSERT INTO ORDERS VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			
+
 			PreparedStatement preparedStmt = con.prepareStatement(queryString);
 
 			preparedStmt.clearParameters();
-			
+
 			preparedStmt.setString(1, orderNum);
 			preparedStmt.setString(2, customerNum);
 			preparedStmt.setString(3, status);
@@ -110,24 +111,24 @@ public class OrderController {
 		}
 
 	}
-	
+
 	public List<Order>  ViewResOrders(String rnum) {
-		List<Order> list = new ArrayList<Order>();
+		List<Order> list = new ArrayList<>();
 		try {
 			//Variable for connection to DB
-			Connection con = openDBConnection();	
+			Connection con = openDBConnection();
 			String queryString = "Select o.customer_number, o.deliverytype, o.drink, o.order_number, o.ordertotal, o.pizzasize, o.pizzatype, o.rest_num, o.status";
 					queryString+= " from orders o, restaurant r";
 					queryString+= " Where o.rest_num = r.rest_num and o.rest_num = ? and o.status <> 'completed'";
-			
+
 			PreparedStatement preparedStmt = con.prepareStatement(queryString);
 
 			preparedStmt.clearParameters();
-			
+
 			preparedStmt.setString(1, rnum);
 
 			ResultSet result = preparedStmt.executeQuery();
-			
+
 			while (result.next()){
 				Order o = new Order();
 				o.setOrderNum(result.getString(4));
@@ -149,9 +150,9 @@ public class OrderController {
 		}
 
 	}
-	
+
 	public List<Order> getOrders(String cusNum) {
-		List<Order> list = new ArrayList<Order>();
+		List<Order> list = new ArrayList<>();
 		try {
 			Connection con = openDBConnection();
 			//String queryString = "EXEC ViewOrderInfo ?";

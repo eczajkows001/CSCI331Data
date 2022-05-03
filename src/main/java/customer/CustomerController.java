@@ -1,8 +1,13 @@
 package customer;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 public class CustomerController {
-	
+
 	public Connection openDBConnection() {
 		try {
 			// Load driver and link to driver manager
@@ -16,7 +21,7 @@ public class CustomerController {
 		}
 		return null;
 	}
-	
+
 	public void closeResults(ResultSet result) {
 		try {
 			result.close();
@@ -40,7 +45,7 @@ public class CustomerController {
 			E.printStackTrace();
 		}
 	}
-	
+
 	public void viewAccountInfo(String customerNum) {
 		try {
 			Connection con = openDBConnection();
@@ -53,7 +58,7 @@ public class CustomerController {
 			System.out.println("SQL problems:" + E);
 		}
 	}
-	
+
 	public void viewOrder(String customerNum) {
 		try {
 			Connection con = openDBConnection();

@@ -1,6 +1,11 @@
 package Review;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class ReviewController {
 	public Connection openDBConnection() {
@@ -16,7 +21,7 @@ public class ReviewController {
 		}
 		return null;
 	}
-	
+
 	public void closeResults(ResultSet result) {
 		try {
 			result.close();
@@ -40,7 +45,7 @@ public class ReviewController {
 			E.printStackTrace();
 		}
 	}
-	
+
 	public void addReview(String restNum, String customerNum, String rating, String review) {
 		try {
 			Connection con = openDBConnection();
@@ -51,7 +56,7 @@ public class ReviewController {
 			preparedStmt.setString(3, rating);
 			preparedStmt.setString(4, review);
 			preparedStmt.clearParameters();
-			
+
 			preparedStmt.executeUpdate();
 			con.close();
 			preparedStmt.close();

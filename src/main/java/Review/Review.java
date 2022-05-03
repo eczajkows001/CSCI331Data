@@ -5,18 +5,18 @@ public class Review {
 	private String customerNum;
 	private String rating;
 	private String review;
-	
+
 	public Review(String restNum, String customerNum, String rating, String review) {
 		this.restNum = restNum;
 		this.customerNum = customerNum;
 		this.rating = rating;
 		this.review = review;
 	}
-	
+
 	public Review() {
-		
+
 	}
-	
+
 	public String getRestNum() {
 		return restNum;
 	}
@@ -41,5 +41,5 @@ public class Review {
 	public void setReview(String review) {
 		this.review = review;
 	}
-	
+
 }
