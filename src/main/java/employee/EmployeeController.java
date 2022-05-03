@@ -52,13 +52,15 @@ public class EmployeeController {
 		}
 	}
 	
-	public List<Employee> searchEmployees() {
+	public List<Employee> searchEmployees(String employeeNum) {
 		List<Employee> employeeList = new ArrayList<>();
 		try {
 		Connection con = openDBConnection();
-		String queryString = "Select ssn, last, first, hours, employee_num, rest_num from EMPLOYEES Where employee_num =" + 456;
-		Statement Stmt = con.createStatement();
-		ResultSet result = Stmt.executeQuery(queryString);
+		String queryString = "Select ssn, last, first, hours, employee_num, rest_num from EMPLOYEES Where employee_num =?";
+		
+		PreparedStatement prepStmt = con.prepareStatement(queryString);
+		prepStmt.clearParameters();
+		ResultSet result = prepStmt.executeQuery(queryString);
 		while (result.next()) {
 			Employee e = new Employee();
 			e.setSsn(result.getString(1));
@@ -70,7 +72,7 @@ public class EmployeeController {
 			employeeList.add(e);
 		}
 		result.close();
-		Stmt.close();
+		prepStmt.close();
 		return employeeList;
 		}
 			catch(SQLException E) {

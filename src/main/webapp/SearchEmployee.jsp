@@ -104,7 +104,7 @@ li a:hover:not(.active) {
 	</div>
 	<% EmployeeController ec = new EmployeeController(); %>
 	<%List<Employee> employeeList = new ArrayList<Employee>();
-    employeeList = ec.searchEmployees();%>
+    employeeList = ec.searchEmployees(request.getParameter("employeeNumber"));%>
 
 	<div align='center'>
 		<h2>Results</h2>
