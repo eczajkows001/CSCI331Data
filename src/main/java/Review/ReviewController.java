@@ -44,7 +44,8 @@ public class ReviewController {
 	public void addReview(String restNum, String customerNum, String rating, String review) {
 		try {
 			Connection con = openDBConnection();
-			String queryString = "EXEC reviews_addreview('?','?','?','?')";
+			//String queryString = "EXEC REVIEWS_AddReviews(?, ?, ?, ?)";
+			String queryString = "INSERT INTO REVIEWS VALUES(rest_num, customer_number, rating, review) VALUES (?, ?, ?, ?)";
 			PreparedStatement preparedStmt = con.prepareStatement(queryString);
 			preparedStmt.setString(1,  restNum);
 			preparedStmt.setString(2,  customerNum);
