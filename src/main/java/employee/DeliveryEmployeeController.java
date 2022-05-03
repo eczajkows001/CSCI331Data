@@ -98,6 +98,7 @@ public class DeliveryEmployeeController {
 		}
 
 	}
+
 	public void viewDeliveryInfo(String orderNum) {
 		try {
 			//Variable for connection to DB
