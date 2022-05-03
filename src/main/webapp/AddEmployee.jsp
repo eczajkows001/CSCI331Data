@@ -97,7 +97,7 @@ li a:hover:not(.active) {
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
 		</ul>
 	</div>
-	<script>
+	<!-- <script>
 			function submitRemoveEmployee(){
 				EmployeeController ec1 = newEmployeeController();
 
@@ -121,23 +121,23 @@ li a:hover:not(.active) {
 
 	<div align='center'>
 		<h1>Add Employee</h1>
-	</div>
+	</div> -->
 
 
-	<form>
+	<form class="w3-container w3-card-4 w3-light-grey" method="post" action="addEmployeeAction.jsp">
 		<label for="firstName:"> First Name:</label> <input type="text"
-			id="fname2" name="fname"> <br> <label for="Last Name">
-			Last Name:</label> <input type="text" id="lname2" name="lname"> <br>
+			id="fname2" name="fname2"> <br> <label for="Last Name">
+			Last Name:</label> <input type="text" id="lname2" name="lname2"> <br>
 		<label for="SSN"> Social Security Number:</label> <input type="text"
-			id="SSN2" name="SSN"> <br> <label for="Employee Number">
+			id="SSN2" name="SSN2"> <br> <label for="Employee Number">
 			Employee Number:</label> <input type="text" id="employeeNumber2"
-			name="employeeNumber"> <br> <label for="Hours">
-			Hours:</label> <input type="text" id="hours2" name="hours"> <br>
+			name="employeeNumber2"> <br> <label for="Hours">
+			Hours:</label> <input type="text" id="hours2" name="hours2"> <br>
 		<label for="restaurantNumber"> Restaurant Number:</label> <input
-			type="text" id="restaurantNumber2" name="restaurantNumber"> <br>
+			type="text" id="restaurantNumber2" name="restaurantNumber2"> <br>
+	<input name="submit" value="submit" type="submit">
 	</form>
-	<button type='button' id='submitEmployeeButton'
-		onClick="submitNewEmployee()">Add Employee</button>
+	
 
 
 	<script>
@@ -161,7 +161,7 @@ li a:hover:not(.active) {
 					alert("Alert submitted");
 				}
 			}
-		</script>
+	</script>
 
 
 

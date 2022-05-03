@@ -1,5 +1,6 @@
 package employee;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -89,20 +90,17 @@ public class EmployeeController {
 	public void addNewEmployee(String firstName, String lastName, String SSN, String EmployeeNumber, String hours, String resNumber) {
 		try{
 			Connection con = openDBConnection();
-			String queryString  = "INSERT INTO EMPLOYEES VALUES ('?', '?', '?', '?', '?', '?')";
-			PreparedStatement preparedStmt = con.prepareStatement(queryString);
-			preparedStmt.clearParameters();
-			preparedStmt.setString(1, SSN);
-			preparedStmt.setString(2, lastName);
-			preparedStmt.setString(3, firstName);
-			preparedStmt.setString(4, hours);
-			preparedStmt.setString(5, EmployeeNumber);
-			preparedStmt.setString(5, resNumber);
-
-			preparedStmt.executeUpdate();
-
+			CallableStatement c = con.prepareCall("begin Employee_Add_Employee (?, ?, ?, ?, ?, ?); end;" );
+			c.clearParameters();
+			c.setString(1, SSN);
+			c.setString(2, lastName);
+			c.setString(3, firstName);
+			c.setString(4, hours);
+			c.setString(5, EmployeeNumber);
+			c.setString(6, resNumber);
+			c.execute();
+			c.close();
 			con.close();
-			preparedStmt.close();
 		}
 		catch(SQLException E) {
 			System.out.println("SQL problems:" + E);
