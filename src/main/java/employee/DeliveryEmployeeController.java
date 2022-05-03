@@ -96,32 +96,9 @@ public class DeliveryEmployeeController {
 		}
 	
 	}
-	public void viewDeliveryInfo(String orderNum) {
-		try {
-			//Variable for connection to DB
-			Connection con = openDBConnection();
-			
-			String queryString = "Query Here";
-			
-			PreparedStatement preparedStmt = con.prepareStatement(queryString);
 	
-			preparedStmt.clearParameters();
-			
-			preparedStmt.setString(1, orderNum);
-			
 	
-			//TODO figure out why this does not finish executing
-			preparedStmt.executeUpdate();
 	
-			con.close();
-			preparedStmt.close();
-	
-		}
-		catch(SQLException E){
-			System.out.println("SQL problems:" + E);
-		}
-	
-	}
 //	public static DeliveryEmployee getDeliveryEmpInfo(String ssn) {
 //		DeliveryEmployee s = new DeliveryEmployee();
 //		

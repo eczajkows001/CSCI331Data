@@ -48,7 +48,7 @@ public class OrderController {
 			E.printStackTrace();
 		}
 	}
-	public void placeOrder(String customerNum, String pizzaType, String pizzaSize, String drink, String restaurantNum, String deliveryType) {
+	public String placeOrder(String customerNum, String pizzaType, String pizzaSize, String drink, String restaurantNum, String deliveryType) {
 		try {
 			//Variable for connection to DB
 			Connection con = openDBConnection();
@@ -103,11 +103,14 @@ public class OrderController {
 
 			con.close();
 			preparedStmt.close();
-
+			
+			return orderNum;
 		}
 		catch(SQLException E){
 			System.out.println("SQL problems:" + E);
+			
 		}
+		return null;
 
 	}
 	
@@ -180,6 +183,7 @@ public class OrderController {
 		}
 		return list;
 	}
+	
 
 }
 
