@@ -1,9 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+	import="Review.*" import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Reviews</title>
+<title>Orders</title>
 <style>
 div {
 	margin-top: 10px;
@@ -95,22 +96,40 @@ li a:hover:not(.active) {
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
 		</ul>
 	</div>
+	<% ReviewController rc = new ReviewController();%>
 	<div align='center'>
-		<h1>Reviews</h1>
-	</div>
-	<div align='center'>
-		<button type='button' onclick="location.href='AddReview.jsp'">Add Review</button>
-		<button type='button' onclick="location.href='ViewReview.jsp'">View All Reviews</button>
-		<button type='button' onclick="location.href='SearchReview.jsp'">Search for Reviews By Restaurant</button>
-	</div>
+		<h1>All Reviews</h1>
+		<a href='SearchReview.jsp'>Search Reviews</a>
+		<hr>
+		<table style="text-align: left; width: 55%;" border="1"
+			cellpadding="2" cellspacing="2">
+			<tr>
+				<th>Restaurant Number</th>
+				<th>Customer Number</th>
+				<th>Rating</th>
+				<th>Review</th>
+			</tr>
+			<%List<Review> list = rc.getReviews(); 
+		for(Review r: list){%>
+			<tr>
+				<td>
+					<%out.println(r.getRestNum()); %>
+				</td>
+				<td>
+					<%out.println(r.getCustomerNum()); %>
+				</td>
+				<td>
+					<%out.println(r.getRating()); %>
+				</td>
+				<td>
+					<%out.println(r.getReview()); %>
+				</td>
+			</tr>
+			<%}%>
+
+			</div>
+
+		
 </body>
 </html>
-
-
-
-
-
-
-
-
 
