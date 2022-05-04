@@ -111,9 +111,8 @@ li a:hover:not(.active) {
 	<br>
 	<div align='center'>
 		<h3>Manager Interface</h3>
-	</div>
+	</div> 
 	<div align='center'>
-
 		<button type='button' onclick="location.href='ManageEmployees.jsp';">Manage
 			Employees</button>
 		<button type='button' onclick="location.href='ManageOrders.jsp';">Manage
@@ -122,6 +121,15 @@ li a:hover:not(.active) {
 			Menu</button>
 		<button type='button' onclick="location.href='ManageLocations.jsp';">Manage
 			Locations</button>
+	
+		<button type='button' onclick="location.href='ResInformation.jsp'">View Restaurant Information</button>
+		<button type='button' onclick="location.href='AddRestaurant.jsp'">Add Restaurant</button>
+		<button type='button' onclick="location.href='ViewMenu.jsp'">View Menu</button>
+		<button type='button' onclick="location.href='AddMenuItem.jsp'">Add To Menu</button>
+		<button type='button' onclick="location.href='ManageEmployees.jsp';">Manage Employees</button>
+		<button type='button' onclick="location.href='ManageOrders.jsp';">Manage Orders</button>
+		<button type='button' onclick="location.href='ManageMenu.jsp';">Manage Menu</button>
+		<button type='button' onclick="location.href='ManageLocations.jsp';">Manage Locations</button>
 	</div>
 	<br>
 	<div align='center'>

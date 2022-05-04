@@ -100,12 +100,12 @@ li a:hover:not(.active) {
 		<h1>Customer Home Page</h1>
 	</div>
 	<div align='center'>
-		<button type='button' onclick="location.href='ViewMenu.jsp'">View
-			Menu</button>
-		<button type='button' onclick="location.href='PlaceOrder.jsp'">Place
-			Order</button>
-		<button type='button' onclick="location.href='AccountInfo.jsp'">View
-			Account Info</button>
+		<button type='button' onclick="location.href='PlaceOrder.jsp'">Place Order</button>
+		<button type='button' onclick="location.href='AccountInfo.jsp'">View Account Info</button>
+		<button type='button' onclick="location.href='ResInformation.jsp'">View Restaurant Information</button>
+		<button type='button' onclick="location.href='ViewMenu.jsp'">View Menu</button>
+		<button type='button' onclick="location.href='PlaceOrder.jsp'">Place Order</button>
+		<button type='button' onclick="location.href='AccountInfo.jsp'">View Account Info</button>
 		<button type='button' onclick="location.href='Reviews.jsp'">Reviews</button>
 		<button type='button' onclick="location.href='ViewOrders.jsp'">View Orders</button>
 		<button type='button' onclick="location.href='Ranking.jsp'">View Rankings</button>

@@ -1,4 +1,7 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+	import="menu.*" import="java.util.*"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,6 +91,7 @@ li a:hover:not(.active) {
 </style>
 </head>
 <body>
+	
 	<div style='margin-top: 0px'>
 		<ul>
 			<li><a href='HomePage.jsp'>Home Page</a></li>
@@ -95,8 +99,40 @@ li a:hover:not(.active) {
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
 		</ul>
 	</div>
+	
+	<% MenuController mc = new MenuController();%>
 	<div align='center'>
-		<h1>Menu</h1>
-	</div>
+		<h1>Menu Items</h1>
+		
+		<hr>
+	
+
+		
+		
+		<table style="text-align: left; width: 55%;" border="1"
+			cellpadding="2" cellspacing="2">
+			<tr>
+				<th>Restaurant Number</th>
+				<th>Menu Item</th>
+				
+			</tr>
+			
+			<%List<Menu> list = mc.getMenuItem();
+		for(Menu r: list){%>
+			<tr>
+				<td>
+					<%out.println(r.getResNum()); %>
+				</td>
+				<td>
+					<%out.println(r.getMenuItem()); %>
+				</td>
+				
+			</tr>
+			<%}%>
+
+			</div>
+			
+	
+	
 </body>
 </html>
