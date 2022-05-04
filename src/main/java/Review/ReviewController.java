@@ -185,4 +185,28 @@ public class ReviewController {
 		return list;
 	}
 	
+	public List<Rank> findRanks() {
+		List<Rank> list = new ArrayList<>();
+		try {
+			Connection con = openDBConnection();
+			String queryString = "select rest_num, SUM(To_Number(rating)) as rating, DENSE_RANK() OVER (Order by SUM(To_Number(rating))) as RANK from reviews group by rest_num";
+			PreparedStatement preparedStmt = con.prepareStatement(queryString);
+			preparedStmt.clearParameters();
+			ResultSet result = preparedStmt.executeQuery();
+			while (result.next()){
+				Rank r = new Rank();
+				r.setRestNum(result.getString(1));
+				r.setRating(result.getInt(2));
+				r.setRank(result.getInt(3));
+				list.add(r);
+			}
+		}
+		catch(SQLException E){
+			System.out.println("SQL problems:" + E);
+			return list;
+		}
+		return list;
+	}
+
+	
 }

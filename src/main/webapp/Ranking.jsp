@@ -1,9 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+	import="Review.*" import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Customer Home Page</title>
+<title>Rankings</title>
 <style>
 div {
 	margin-top: 10px;
@@ -93,22 +94,36 @@ li a:hover:not(.active) {
 			<li><a href='HomePage.jsp'>Home Page</a></li>
 			<li><a href='CustomerHome.jsp'>Customer Page</a></li>
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
-			<li style='float: right'><a href='AcceptDelivery.jsp'>Login</a></li>
 		</ul>
 	</div>
 	<div align='center'>
-		<h1>Customer Home Page</h1>
+		<h1>Rankings</h1>
+		<hr>
+		<% ReviewController rc = new ReviewController();%>
+		<table style="text-align: left; width: 55%;" border="1"
+			cellpadding="2" cellspacing="2">
+			<tr>
+				<th>Restaurant Number</th>
+				<th>Rating</th>
+				<th>Rank</th>
+			</tr>
+			<%List<Rank> list = rc.findRanks(); 
+		for(Rank r: list){%>
+			<tr>
+				<td>
+					<%out.println(r.getRestNum()); %>
+				</td>
+				<td>
+					<%out.println(r.getRating()); %>
+				</td>
+				<td>
+					<%out.println(r.getRank()); %>
+				</td>
+			</tr>
+			<%}%>
+		
 	</div>
-	<div align='center'>
-		<button type='button' onclick="location.href='ViewMenu.jsp'">View
-			Menu</button>
-		<button type='button' onclick="location.href='PlaceOrder.jsp'">Place
-			Order</button>
-		<button type='button' onclick="location.href='AccountInfo.jsp'">View
-			Account Info</button>
-		<button type='button' onclick="location.href='Reviews.jsp'">Reviews</button>
-		<button type='button' onclick="location.href='ViewOrders.jsp'">View Orders</button>
-		<button type='button' onclick="location.href='Ranking.jsp'">View Rankings</button>
-	</div>
+
+		
 </body>
 </html>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Orders</title>
+<title>View All Reviews</title>
 <style>
 div {
 	margin-top: 10px;
