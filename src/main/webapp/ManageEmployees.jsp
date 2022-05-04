@@ -1,85 +1,93 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" import = "employee.*" import = "java.util.*"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+	import="employee.*" import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Manage Employees</title>
-	<style>	
-		div {
-			margin-top: 10px;
-		}
-		<!---->
-		
-      	button {
-        	display: inline-block;
-        	background-color: #d3d3d3;
-        	border-radius: 10px;
-        	border: 4px double #cccccc;
-        	color: 'red';
-        	text-align: center;
-        	font-size: 16px;
-        	padding: 20px;
-        	width: 175px;
-        	-webkit-transition: all 0.5s;
-        	-moz-transition: all 0.5s;
-        	-o-transition: all 0.5s;
-        	transition: all 0.5s;
-        	cursor: pointer;
-        	margin: 5px;
-      	}
-      	button:hover {
-  			background-color: #f5f5f5;
-		}
-		table{
-			font-family: arial, sans-serif;
-			border-collapse: collapse;
-			width: 100%;
-		}
-		th, td {
-			text-align: left;
-			padding: 8px;
-			border: 1px solid black;
-		}
-		tr:nth-child(even){
-			background-color: #d3d3d3
-		}
-		th {
-			background-color: darkGrey;
-  			color: white;
-		}
-		ul {
-			list-style-type: none;
-  			margin: 0;
-  			padding: 0;
-  			overflow: hidden;
-  			background-color: #333;
-		}
-				
-		li {
-		  float: left;
-		  border-right:1px solid #bbb;
-		}
-		
-		li:last-child {
-		  border-right: none;
-		}
-		
-		li a {
-		  display: block;
-		  color: white;
-		  text-align: center;
-		  padding: 14px 16px;
-		  text-decoration: none;
-		}
-		
-		li a:hover:not(.active) {
-		  background-color: #111;
-		}
-		
-		.active {
-		  background-color: #04AA6D;
-		}
-    </style>
+<style>
+div {
+	margin-top: 10px;
+}
+
+<!--
+-->
+button {
+	display: inline-block;
+	background-color: #d3d3d3;
+	border-radius: 10px;
+	border: 4px double #cccccc;
+	color: 'red';
+	text-align: center;
+	font-size: 16px;
+	padding: 20px;
+	width: 175px;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+}
+
+button:hover {
+	background-color: #f5f5f5;
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+	border: 1px solid black;
+}
+
+tr:nth-child(even) {
+	background-color: #d3d3d3
+}
+
+th {
+	background-color: darkGrey;
+	color: white;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+li {
+	float: left;
+	border-right: 1px solid #bbb;
+}
+
+li:last-child {
+	border-right: none;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover:not(.active) {
+	background-color: #111;
+}
+
+.active {
+	background-color: #04AA6D;
+}
+</style>
 </head>
 <body>
 	<div style='margin-top: 0px'>
@@ -91,68 +99,22 @@
 	</div>
 	<div align='center'>
 		<h1>Manage Employees</h1>
-		<h2>Search Employees</h2>
+		<button type='button' onclick="location.href='AddEmployee.jsp'">Add/Remove
+			Employee</button>
 	</div>
-	
-	<form>
-	<table>
-	<tr>
-	<td>
-	<label for = "firstName:"> First Name:</label>
-	<input type = "text" id = "fname" name = "fname">
-	</td>
-	<td>
-	<label for = "Last Name"> Last Name:</label>
-	<input type = "text" id = "lname" name = "lname">
-	</td>
-	</tr>
-	
-	<tr>
-	<td>
-	<label for = "SSN"> Social Security Number:</label>
-	<input type = "text" id = "SSN" name = "SSN">
-	</td>
-	<td>
-	<label for = "Employee Number"> Employee Number:</label>
-	<input type = "text" id = "employeeNumber" name = "employeeNumber">
-	</td>
-	</tr>
-	<tr>
-	</tr>
-	</table>
-	<input type = "submit" value = "Submit">
-	</form>
 
-<% EmployeeController ec = new EmployeeController();%>
-<% List<Employee> employeeList =  ec.viewEmployees();
-employeeList = ec.viewEmployees();%>
-
-	
 	<div align='center'>
-	<h2>Results</h2>
+		<h1>Search Employees</h1>
+		<button type='button' onclick="location.href='SearchEmployee.jsp'">Search
+			Employee</button>
 	</div>
-	
-	<table>
-	<tr>
-	<th>Last Name</th>
-	<th>First Name </th>
-	<th>Social Security Number </th>
-	<th>Hours </th>
-	<th>Employee Number </th>
-	<th>Restaurant Number </th>
-	</tr>
-	
-   <%for(Employee e: employeeList){ %>
-	<tr>
-	<td><%out.println(e.getLast()); %></td>
-	<td><%out.println(e.getFirst()); %></td>
-	<td><%out.println(e.getSsn()); %></td>
-	<td><%out.println(e.getHours()); %></td>
-	<td><%out.println(e.getEmpNum());%></td>
-	<td><%out.println(e.getRestaurantNum());%></td>
-	</tr>
-	<%} %>
 
-	</table>
+	<div align='center'>
+		<h1>View All Employees</h1>
+		<button type='button' onclick="location.href='viewAllEmployees.jsp'">View
+			All Employees</button>
+	</div>
+
+
 </body>
 </html>

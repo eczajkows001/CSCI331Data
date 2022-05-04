@@ -60,7 +60,7 @@ public class DeliveryController {
 			while (result.next()){
 				Delivery d = new Delivery();
 				d.setCurrentOrder(result.getInt(1));
-				d.setFname(result.getString(2));
+				d.setLname(result.getString(2));
 				d.setStreet(result.getString(3));
 				d.setCity(result.getString(4));
 				d.setState(result.getString(5));

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"
-	import="order.*" import="java.util.*"%>
+	import="Review.*" import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,68 +96,40 @@ li a:hover:not(.active) {
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
 		</ul>
 	</div>
+	<% ReviewController rc = new ReviewController();%>
 	<div align='center'>
-		<% OrderController oc = new OrderController();
-	String res = request.getParameter("orderNum");
-	if(request.getParameter("orderNum") != "" && request.getParameter("orderNum") != null ){ %>
-		<div align='center'>
-			<h1>Orders in Progress</h1>
-			<hr>
-			<br>
-			<table style="text-align: left; width: 55%;" border="1"
-				cellpadding="2" cellspacing="2">
-				<tr>
-					<th>Order Number</th>
-					<th>Customer Number</th>
-					<th>Status</th>
-					<th>Drink</th>
-					<th>Order Total</th>
-					<th>Pizza Type</th>
-					<th>Pizza Size</th>
-				</tr>
-				<%List<Order> list = oc.getOrders(request.getParameter("orderNum")); 
-		for(Order o: list){%>
-				<tr>
-					<td>
-						<%out.println(o.getOrderNum()); %>
-					</td>
-					<td>
-						<%out.println(o.getCustomerNum()); %>
-					</td>
-					<td>
-						<%out.println(o.getStatus()); %>
-					</td>
-					<td>
-						<%out.println(o.getDrink()); %>
-					</td>
-					<td>
-						<%out.println(o.getOrderTotal()); %>
-					</td>
-					<td>
-						<%out.println(o.getPizzaType()); %>
-					</td>
-					<td>
-						<%out.println(o.getPizzaSize()); %>
-					</td>
-				</tr>
-				<%}%>
+		<h1>All Reviews</h1>
+		<a href='SearchReview.jsp'>Search Reviews</a>
+		<hr>
+		<table style="text-align: left; width: 55%;" border="1"
+			cellpadding="2" cellspacing="2">
+			<tr>
+				<th>Restaurant Number</th>
+				<th>Customer Number</th>
+				<th>Rating</th>
+				<th>Review</th>
+			</tr>
+			<%List<Review> list = rc.getReviews(); 
+		for(Review r: list){%>
+			<tr>
+				<td>
+					<%out.println(r.getRestNum()); %>
+				</td>
+				<td>
+					<%out.println(r.getCustomerNum()); %>
+				</td>
+				<td>
+					<%out.println(r.getRating()); %>
+				</td>
+				<td>
+					<%out.println(r.getReview()); %>
+				</td>
+			</tr>
+			<%}%>
 
-				<%} 
-	else{%>
-				<form method="post" action="ViewOrders.jsp">
-					<br>
-					<div align='center'>
-						<h1>View Order Information</h1>
-						<hr>
-						Please enter your customer number:
-						<p>
-							Customer Number: <input type="text" name="orderNum"
-								class="form-control">
-						</p>
+			</div>
 
-					</div>
-				</form>
-				<%} %>
-				</div>
+		
 </body>
 </html>
+

@@ -100,7 +100,7 @@
 		<tr>
 
 			<th> Order Number </th>
-			<th> First Name </th>
+			<th> Last Name </th>
 			<th> Street </th>
 			<th> City </th>
 			<th> State </th>
@@ -111,7 +111,7 @@
 		for(Delivery o: list){%>
 		<tr>
 			<td><%out.println(o.getCurrentOrder()); %> </td>
-			<td><%out.println(o.getFname()); %> </td>
+			<td><%out.println(o.getLname()); %> </td>
 			<td><%out.println(o.getStreet()); %> </td>
 			<td><%out.println(o.getCity()); %> </td>
 			<td><%out.println(o.getState()); %> </td>

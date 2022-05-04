@@ -2,16 +2,16 @@ package delivery;
 
 public class Delivery {
 	private int currentOrder;
-	private String fname;
+	private String lname;
 	private String street;
 	private String city;
 	private String state;
 	private int zipcode;
 	
-	public Delivery(int currentOrder, String fname, String street, 
+	public Delivery(int currentOrder, String lname, String street, 
 			String city, String state, int zipcode ) {
 		this.currentOrder = currentOrder;
-		this.fname = fname;
+		this.lname = lname;
 		this.street = street;
 		this.city = city;
 		this.state = state;
@@ -30,12 +30,12 @@ public class Delivery {
 		this.currentOrder = currentOrder;
 	}
 
-	public String getFname() {
-		return fname;
+	public String getLname() {
+		return lname;
 	}
 
-	public void setFname(String fname) {
-		this.fname = fname;
+	public void setLname(String fname) {
+		this.lname = fname;
 	}
 
 	public String getStreet() {
@@ -69,6 +69,8 @@ public class Delivery {
 	public void setZipcode(int zipcode) {
 		this.zipcode = zipcode;
 	}
+
+
 	
 
 	

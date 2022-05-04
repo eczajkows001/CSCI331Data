@@ -1,9 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+	import="employee.*" import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Customer Home Page</title>
+<title>Manage Employees</title>
 <style>
 div {
 	margin-top: 10px;
@@ -34,6 +35,7 @@ button:hover {
 }
 
 table {
+	font-family: arial, sans-serif;
 	border-collapse: collapse;
 	width: 100%;
 }
@@ -93,22 +95,68 @@ li a:hover:not(.active) {
 			<li><a href='HomePage.jsp'>Home Page</a></li>
 			<li><a href='CustomerHome.jsp'>Customer Page</a></li>
 			<li><a href='EmployeeHome.jsp'>Employee Page</a></li>
-			<li style='float: right'><a href='AcceptDelivery.jsp'>Login</a></li>
 		</ul>
 	</div>
-	<div align='center'>
-		<h1>Customer Home Page</h1>
+
+	<%if(request.getParameter("employeeNumber") != "" && request.getParameter("employeeNumber") != null){ %>
+	<div allign='center'>
+		<h1>Employee(s) Found:</h1>
 	</div>
+	<% EmployeeController ec = new EmployeeController(); %>
+	<%List<Employee> employeeList = new ArrayList<Employee>();
+    employeeList = ec.searchEmployees(request.getParameter("employeeNumber"));%>
+
 	<div align='center'>
-		<button type='button' onclick="location.href='ViewMenu.jsp'">View
-			Menu</button>
-		<button type='button' onclick="location.href='PlaceOrder.jsp'">Place
-			Order</button>
-		<button type='button' onclick="location.href='AccountInfo.jsp'">View
-			Account Info</button>
-		<button type='button' onclick="location.href='Reviews.jsp'">Reviews</button>
-		<button type='button' onclick="location.href='ViewOrders.jsp'">View
-			Orders</button>
+		<h2>Results</h2>
 	</div>
+
+	<table>
+		<tr>
+			<th>Last Name</th>
+			<th>First Name</th>
+			<th>Social Security Number</th>
+			<th>Hours</th>
+			<th>Employee Number</th>
+			<th>Restaurant Number</th>
+		</tr>
+
+		<%for(Employee e: employeeList){ %>
+		<tr>
+			<td>
+				<%out.println(e.getLast()); %>
+			</td>
+			<td>
+				<%out.println(e.getFirst()); %>
+			</td>
+			<td>
+				<%out.println(e.getSsn()); %>
+			</td>
+			<td>
+				<%out.println(e.getHours()); %>
+			</td>
+			<td>
+				<%out.println(e.getEmpNum());%>
+			</td>
+			<td>
+				<%out.println(e.getRestaurantNum());%>
+			</td>
+		</tr>
+		<%} %>
+	</table>
+	<% }
+	else{%>
+	<form method="post" action="SearchEmployee.jsp">
+		<br>
+		<div align='center'>
+			<h1>Search Employees</h1>
+		</div>
+		<div>
+			<label for="Employee Number"> Please Enter The Employee
+				Number:</label><br> <input type="text" name="employeeNumber"
+				class="form-control">
+		</div>
+	</form>
+	<%} %>
+
 </body>
 </html>

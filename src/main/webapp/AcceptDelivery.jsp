@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="employee.*" import="java.util.*" %>
 <!DOCTYPE html>
 <html>
@@ -145,6 +146,5 @@
 	</div>
 	</form>
 	<%} %>
-	</div>
-</body>
+
 </html>
