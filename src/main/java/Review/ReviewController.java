@@ -189,7 +189,7 @@ public class ReviewController {
 		List<Rank> list = new ArrayList<>();
 		try {
 			Connection con = openDBConnection();
-			String queryString = "select rest_num, SUM(To_Number(rating)) as rating, DENSE_RANK() OVER (Order by SUM(To_Number(rating))) as RANK from reviews group by rest_num";
+			String queryString = "select rest_num, SUM(To_Number(rating)) as rating, DENSE_RANK() OVER (Order by SUM(To_Number(rating)) DESC) as RANK from reviews group by rest_num";
 			PreparedStatement preparedStmt = con.prepareStatement(queryString);
 			preparedStmt.clearParameters();
 			ResultSet result = preparedStmt.executeQuery();
