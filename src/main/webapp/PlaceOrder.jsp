@@ -95,58 +95,82 @@
 	  		<br>
 	  		<div>
 				<label>Size:
-					<select id = "pizzaSize">
-						<option value = "small">Small</option>
-			  			<option value = "medium">Medium</option>
-			  			<option value = "large">Large</option>
-					</select>
+					
+
+
+				<td>
+					
+					<input type="radio" name="pizzaSize" value="small" /> Small
+					<input type="radio" name="pizzaSize" value="medium" /> Medium
+					<input type="radio" name="pizzaSize" value="large" /> Large
+
+				</td>
+
 				</label>
 			</div>
 			<br>
 			<div>
 				<label>Type: 
-		  			<select id = "pizzaType">
-		  				<option value = "Cheese">Cheese</option>
-		  				<option value = "Pepperoni">Pepperoni</option>
-		  				<option value = "Sausage">Sausage</option>
-		  				<option value = "Taco">Taco</option>
-		  				<option value = "Buffalo Chicken">Buffalo Chicken</option>
-		  			</select>
+<!-- 		  			<select id = "pizzaType"> -->
+<!-- 		  				<option value = "Cheese">Cheese</option> -->
+<!-- 		  				<option value = "Pepperoni">Pepperoni</option> -->
+<!-- 		  				<option value = "Sausage">Sausage</option> -->
+<!-- 		  				<option value = "Taco">Taco</option> -->
+<!-- 		  				<option value = "Buffalo Chicken">Buffalo Chicken</option> -->
+<!-- 		  			</select> -->
+				<td>
+					
+					<input type="radio" name="pizzaType" value="Cheese" /> Cheese
+					<input type="radio" name="pizzaType" value="Pepperoni" /> Pepperoni
+					<input type="radio" name="pizzaType" value="Sausage" /> Sausage
+					<input type="radio" name="pizzaType" value="Taco" /> Taco
+					<input type="radio" name="pizzaType" value="Buffalo Chicken" /> Buffalo Chicken
+
+				</td>
 		  		</label>
 			</div>
 			<br>
 			<div>
 				<label>Drink:
-					<select id = "drink">
-						<option value = "small">None</option>
-		  				<option value = "small">Water</option>
-		  				<option value = "small">Pepsi</option>
-		  				<option value = "small">Diet Pepsi</option>
-		  				<option value = "small">Mtn. Dew</option>
-					</select>
+									<td>
+					
+					<input type="radio" name="drink" value="none" /> None
+					<input type="radio" name="drink" value="water" /> Water
+					<input type="radio" name="drink" value="Mt. Dew" /> Mt. Dew
+					<input type="radio" name="drink" value="Diet Pepsi" /> Diet Pepsi
+					<input type="radio" name="drink" value="Pepsi" /> Pepsi
+
+				</td>
 				</label>
 			</div>
 			<br>
 			<div>
 				  <label>How would you like to receive your order?:
-					<select id = deliveryType>
-						<option value = "p">Pickup</option>
-		  				<option value = "d">Delivery</option>
-					</select>
+									<td>
+					
+					<input type="radio" name="deliveryType" value="p" /> Pickup
+					<input type="radio" name="deliveryType" value="d" /> Delivery
+
+
+				</td>
 				</label>
 				</div>
 				<br>
 				<div>
 				  <label>From which restaurant?:
-					<select id = restaurantNum>
-						<option value = "001">001</option>
-		  				<option value = "100">100</option>
-		  				<option value = "200">200</option>
-		  				<option value = "300">300</option>
-					</select>
+									<td>
+					
+					<input type="radio" name="restaurantNum" value="001" /> 001
+					<input type="radio" name="restaurantNum" value="100" /> 100
+					<input type="radio" name="restaurantNum" value="200" /> 200
+					<input type="radio" name="restaurantNum" value="300" /> 300
+
+
+				</td>
 				</label>
 				</div>
 				<br>
+			
 				<input name="Place Order" value="submit" type="submit">
 				<br>
 		</form>

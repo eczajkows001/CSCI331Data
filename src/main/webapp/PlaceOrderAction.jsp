@@ -8,17 +8,22 @@
 <body>
 	<%
 		OrderController oc = new OrderController();
-		String cusNum = request.getParameter("cusNum").toString();
-		String pizzaSize = request.getParameter("pizzaSize").toString();
-		String pizzaType = request.getParameter("pizzaType").toString();
-		String drink = request.getParameter("drink").toString();
-		String restaurantNum = request.getParameter("restaurantNum").toString();
-		String deliveryType = request.getParameter("deliveryType").toString();
-		if (cusNum != null && pizzaType != null && pizzaSize != null && drink != null && restaurantNum != null && deliveryType != null){
-			String orderNum = oc.placeOrder(cusNum, pizzaSize, pizzaType, drink, restaurantNum, deliveryType);
-			System.out.println("Your order has been placed! Your order number is " + orderNum);
-		}
-		response.sendRedirect("CustomerHome.jsp");
+		String cusNum = (String) request.getParameter("cusNum");
+		
+		//System.out.println("testy: " + cusNum);
+		
+		String pizzaSize = (String) request.getParameter("pizzaSize");
+		
+		String pizzaType = (String) request.getParameter("pizzaType");
+		String drink = (String) request.getParameter("drink");
+		String restaurantNum = (String) request.getParameter("restaurantNum");
+		String deliveryType = (String) request.getParameter("deliveryType");
+		
+
+ 		String orderNum = oc.placeOrder(cusNum, pizzaSize, pizzaType, drink, restaurantNum, deliveryType);
+		//response.sendRedirect("CustomerHome.jsp");
 	%>
+	<h1>Your order number is <%=orderNum %>.</h1>
+	<a href="CustomerHome.jsp">Customer Menu</a>
 </body>
 </html>

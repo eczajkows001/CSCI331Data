@@ -91,5 +91,12 @@
 	<div align='center'>
 		<h1>Manage Deliveries</h1>
 	</div>
+	<div align='center'>
+	
+		<button type='button' onclick="location.href='ViewDeliveryInfo.jsp';">View Delivery Info</button>
+			<button type='button' onclick="location.href='AcceptDelivery.jsp';">Accept Delivery</button>
+		<button type='button' onclick="location.href='CompleteDelivery.jsp';">Complete Delivery</button>
+
+	</div>
 </body>
 </html>

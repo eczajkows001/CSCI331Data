@@ -50,9 +50,9 @@ public class DeliveryController {
 		try {
 			Connection con = openDBConnection();
 			//String queryString = "EXEC ViewOrderInfo ?";
-			String queryString = "Select d.CURRENTORDER, c.fname, c.street, c.city, c.state, c.zip_code";
-			queryString+= " from DELIVERY_EMPLOYEES d, CUSTOMER c, ORDERS o";
-			queryString+= " where d.CURRENTORDER = ? AND o.customer_number = c.customer_number";
+			String queryString = "Select *";
+			queryString+= " from VIEWDELIVERYINFO v";
+			queryString+= " where v.CURRENTORDER = ?";
 			PreparedStatement preparedStmt = con.prepareStatement(queryString);
 			preparedStmt.clearParameters();
 			preparedStmt.setString(1, orderNum);

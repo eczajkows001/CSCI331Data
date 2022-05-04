@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" import="employee.*" import="java.util.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="employee.*" import="order.*" import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,7 +93,7 @@
 	String res = request.getParameter("ssn");
 	if(request.getParameter("ssn") != "" && request.getParameter("ssn") != null ){ %>
 	<div align='center'>
-		<h1>Available orders to accept</h1>
+		<h1>Available orders to complete</h1>
 		<hr>
 		<br>
 		<table style="text-align: left; width: 55%;" border="1" cellpadding="2" cellspacing="2">
@@ -111,23 +111,22 @@
 			<th> </th>
 
 		</tr>
-		<%ArrayList<ArrayList<String>> list = oc.viewAvailableDeliveries();
-		System.out.println(list);
-		for(int i = 0; i < list.size();i++){%>
+		<%List<Order> list = oc.viewMyDeliveries(request.getParameter("ssn")); 
+		for(Order o: list){%>
 		<tr>
-			<td><%out.println(list.get(i).get(0)); %> </td>
-			<td><%out.println(list.get(i).get(1)); %> </td>
-			<td><%out.println(list.get(i).get(2)); %> </td>
-			<td><%out.println(list.get(i).get(3)); %> </td>
-			<td><%out.println(list.get(i).get(4)); %> </td>
-			<td><%out.println(list.get(i).get(5)); %> </td>
-			<td><%out.println(list.get(i).get(6)); %> </td>
-			<td><%out.println(list.get(i).get(7)); %> </td>
-			<td><%out.println(list.get(i).get(8)); %> </td>
-			<td> <form method="post" action="AcceptDeliveryAction.jsp" name="accept">
-	    <input name="Accept" value="Accept" type="submit">
-	    <input name="orderNum" value= "<%=list.get(i).get(0) %>" type="hidden">
-	    <input name="ssn" value= "<%=request.getParameter("orderNum") %>" type="hidden">
+			<td><%out.println(o.getOrderNum()); %> </td>
+			<td><%out.println(o.getCustomerNum()); %> </td>
+			<td><%out.println(o.getStatus()); %> </td>
+			<td><%out.println(o.getPizzaType()); %> </td>
+			<td><%out.println(o.getPizzaSize()); %> </td>
+			<td><%out.println(o.getDrink()); %> </td>
+			<td><%out.println(o.getRestaurantNum()); %> </td>
+			<td><%out.println(o.getOrderTotal()); %> </td>
+			<td><%out.println(o.getDeliveryType()); %> </td>
+			<td> <form method="post" action="CompleteDeliveryAction.jsp" name="complete">
+	    <input name="Complete" value="Complete" type="submit">
+	    <input name="orderNum" value= "<%=o.getOrderNum() %>" type="hidden">
+	    <input name="ssn" value= "<%=request.getParameter("ssn") %>" type="hidden">
 
 	</form></td>
 		</tr>
@@ -135,9 +134,9 @@
 		
 	<%} 
 	else{%>
-	<form method="post" action="AcceptDelivery.jsp"><br>
+	<form method="post" action="CompleteDelivery.jsp"><br>
 	<div align='center'>
-		<h1>View Available Deliveries</h1>
+		<h1>View Completable Deliveries</h1>
 		<hr>
 		Please enter your ssn:
 		<p>Employee SSN: <input type="text" name="ssn" class="form-control" > </p>
